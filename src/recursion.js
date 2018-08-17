@@ -60,8 +60,22 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  if (n === 1 || n === 0) {
+    return 0;
+  }
+  if (n > 1) {
+    for (var i = (n-1); i < n; i--) {
+      return i + sumBelow(n-1)
+    }
+  }
+  if (n < 1) {
+    for (var i = (n+1); i > n; i++) {
+      return i + sumBelow(n+1)
+    }
+  }
 };
-
+console.log(sumBelow(10)); // 45
+console.log(sumBelow(-1)); // 21
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
@@ -70,14 +84,8 @@ var range = function(x, y) {
   if (arr.length === y-x-1) {
     return arr
   }
- 
-  
-
-
-  // return arr
-  // if ()
 };
-console.log(range(2,9))
+// console.log(range(2,9))
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
